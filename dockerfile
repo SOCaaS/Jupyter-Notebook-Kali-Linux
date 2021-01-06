@@ -4,7 +4,7 @@ RUN apt update
 
 RUN apt-get -y install python3.8
 
-RUN ln -s $(which python3.8) /usr/bin/python3
+RUN update-alternatives --set python /usr/bin/python3.8
 
 RUN python3 --version
 
