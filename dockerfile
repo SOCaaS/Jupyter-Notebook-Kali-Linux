@@ -4,6 +4,8 @@ RUN apt update
 
 RUN apt-get -y install python3.8
 
+RUN ln -s $(which python3.8) /usr/bin/python3
+
 RUN python3 --version
 
 RUN apt-get -y install texlive-xetex
