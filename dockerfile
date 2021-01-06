@@ -2,15 +2,15 @@ FROM kalilinux/kali-rolling
 
 RUN apt update
 
+RUN apt-get -y remove --auto-remove python3
+
+RUN apt-get -y install python3.8
+
 RUN apt-get -y install texlive-xetex
 
 RUN apt-get -y install pandoc
 
 RUN apt-get -y install default-jre
-
-RUN apt-get remove --auto-remove python3
-
-RUN apt-get -y install python3.8
 
 RUN python3 --version
 
