@@ -1,4 +1,4 @@
-FROM python:3.8
+FROM kalilinux/kali-rolling
 
 RUN apt update
 
@@ -19,5 +19,3 @@ RUN useradd -ms /bin/bash jupyter
 WORKDIR /home/jupyter/code/
 
 USER jupyter
-
-CMD jupyter notebook --no-browser --ip='*' --NotebookApp.token='' --NotebookApp.password='' 

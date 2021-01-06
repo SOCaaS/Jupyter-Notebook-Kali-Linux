@@ -2,14 +2,16 @@ version: '3.3'
 services:
   jupyter_notebook:
     restart: always
-    image: 'jupyter-notebook:bdmti'
+    image: 'jupyter-notebook:latest'
     build:
       context: '.'
       dockerfile: dockerfile
       cache_from:
-        - 'jupyter-notebook:bdmti'
+        - 'jupyter-notebook:latest'
     volumes: 
-      - './code/:/home/jupyter/code/'
-    ports:
-      - '8888:8888'
+      - '/root/jupyter_notebook/:/home/jupyter/code/'
     entrypoint: ['jupyter','notebook','--no-browser',"--ip='*'","--NotebookApp.token='$JUPYTERPASSWORD'","--NotebookApp.password=$JUPYTERPASSWORD"]
+networks:
+  main:
+    external:
+      name : main-overlay
