@@ -19,7 +19,7 @@ pipeline {
     }
     post {
         always {
-            sh 'docker rm $(docker ps -a -q)'
+            sh 'docker rm $(docker ps -a -q); exit 0'
             sh 'docker image prune -f'
             deleteDir() /* clean up our workspace */
         }
