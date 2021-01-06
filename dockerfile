@@ -8,9 +8,9 @@ RUN apt-get -y install pandoc
 
 RUN apt-get -y install default-jre
 
-RUN apt-get -y install python3-pip
-
 RUN python3 --version
+
+RUN apt-get -y install python3-pip
 
 RUN pip --version
 
