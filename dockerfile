@@ -2,15 +2,9 @@ FROM kalilinux/kali-rolling
 
 RUN apt update
 
-RUN apt-get -y install python3.8
+RUN apt-get -y install python3.8 wget python3-pip
 
 RUN update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.8 3
-
-RUN apt-get -y install wget 
-
-RUN wget https://bootstrap.pypa.io/get-pip.py
-
-RUN python3 get-pip.py
 
 RUN python3 -m pip --version
 
