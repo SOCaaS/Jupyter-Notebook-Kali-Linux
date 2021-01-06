@@ -19,3 +19,5 @@ RUN useradd -ms /bin/bash jupyter
 WORKDIR /home/jupyter/code/
 
 USER jupyter
+
+EXPOSE 8080
