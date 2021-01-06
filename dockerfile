@@ -2,9 +2,9 @@ FROM kalilinux/kali-rolling
 
 RUN apt update
 
-RUN apt-get -y remove --auto-remove python3
-
 RUN apt-get -y install python3.8
+
+RUN python3 --version
 
 RUN apt-get -y install texlive-xetex
 
@@ -16,11 +16,11 @@ RUN python3 --version
 
 RUN apt-get -y install python3-pip
 
-RUN pip --version
+RUN pip3 --version
 
 COPY requirement.txt /requirement.txt
 
-RUN pip install -r /requirement.txt
+RUN pip3 install -r /requirement.txt
 
 RUN useradd -ms /bin/bash jupyter
 
