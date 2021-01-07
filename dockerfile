@@ -20,7 +20,7 @@ RUN apt-get -y install default-jre
 
 RUN python3 --version
 
-RUN apt-get -y install git
+RUN apt-get -y install git sudo
 
 RUN useradd -ms /bin/bash jupyter
 
