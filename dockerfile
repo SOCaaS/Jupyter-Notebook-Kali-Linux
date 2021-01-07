@@ -22,6 +22,10 @@ RUN python3 --version
 
 RUN useradd -ms /bin/bash jupyter
 
+RUN chown -R jupyter:jupyter /home/jupyter/code/
+
+RUN apt-get -y install git
+
 WORKDIR /home/jupyter/code/
 
 USER jupyter
