@@ -4,7 +4,7 @@ services:
     restart: always
     networks:
       main:
-          ipv4_address: 10.0.2.20
+          ipv4_address: 10.0.2.21
     image: 'jupyter-notebook:latest'
     build:
       context: '.'
