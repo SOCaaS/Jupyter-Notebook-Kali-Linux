@@ -20,11 +20,13 @@ RUN apt-get -y install default-jre
 
 RUN python3 --version
 
+RUN apt-get -y install git
+
 RUN useradd -ms /bin/bash jupyter
 
-RUN usermod -aG sudo jupyter
+RUN usermod -a -G sudo jupyter
 
-RUN apt-get -y install git
+RUN chsh -s /bin/bash jupyter
 
 WORKDIR /home/jupyter/
 
