@@ -12,9 +12,13 @@ services:
       cache_from:
         - 'jupyter-notebook:latest'
     volumes: 
-      - '/root/jupyter_notebook/:/home/jupyter/code/'
+      - type: volume
+        source: jupyter
+        target: /home/jupyter/code/
     entrypoint: ['jupyter','notebook','--no-browser',"--ip='*'","--NotebookApp.token='$JUPYTERPASSWORD'","--NotebookApp.password=$JUPYTERPASSWORD"]
 networks:
   main:
     external:
       name : main-overlay
+volumes:
+  jupyter:
