@@ -22,7 +22,7 @@ RUN python3 --version
 
 RUN apt-get -y install git sudo
 
-RUN useradd -ms /bin/bash jupyter
+RUN adduser --disabled-password --gecos '' jupyter
 
 RUN usermod -a -G sudo jupyter
 
