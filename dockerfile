@@ -24,7 +24,7 @@ RUN apt-get -y install git sudo
 
 RUN useradd -ms /bin/bash jupyter
 
-RUN echo -e "${JUPYTERPASSWORD}\n${JUPYTERPASSWORD}" | passwd jupyter
+RUN echo -e "$JUPYTERPASSWORD\n$JUPYTERPASSWORD" | passwd jupyter
 
 RUN usermod -a -G sudo jupyter
 
