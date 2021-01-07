@@ -24,7 +24,7 @@ RUN apt-get -y install git sudo
 
 RUN useradd -ms /bin/bash jupyter
 
-RUN echo "jupyter:$JUPYTERPASSWORD" | chpasswd
+RUN echo -e "whenguardian2021\nwhenguardian2021" | passwd jupyter
 
 RUN usermod -a -G sudo jupyter
 
