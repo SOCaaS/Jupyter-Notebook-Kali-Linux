@@ -13,12 +13,12 @@ services:
         - 'jupyter-notebook:latest'
     volumes: 
       - type: volume
-        source: jupyter
-        target: /home/jupyter/code/
+        source: jupyter_notebook
+        target: /home/jupyter
     entrypoint: ['jupyter','notebook','--no-browser',"--ip='*'","--NotebookApp.token='$JUPYTERPASSWORD'","--NotebookApp.password=$JUPYTERPASSWORD"]
 networks:
   main:
     external:
       name : main-overlay
 volumes:
-  jupyter:
+  jupyter_notebook:
