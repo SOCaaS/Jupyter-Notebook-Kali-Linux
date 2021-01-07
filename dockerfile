@@ -26,4 +26,4 @@ WORKDIR /home/jupyter/code/
 
 USER jupyter
 
-EXPOSE 8080
+EXPOSE 8888
