@@ -22,6 +22,8 @@ RUN python3 --version
 
 RUN useradd -ms /bin/bash jupyter
 
+RUN usermod -aG sudo jupyter
+
 RUN apt-get -y install git
 
 WORKDIR /home/jupyter/
