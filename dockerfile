@@ -2,9 +2,9 @@ FROM kalilinux/kali-rolling
 
 RUN apt update
 
-RUN apt-get -y install python3.8 wget python3-pip
+RUN apt-get -y install python3.6 wget python3-pip
 
-RUN update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.8 3
+RUN update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.6 3
 
 RUN python3 -m pip --version
 
@@ -21,6 +21,10 @@ RUN apt-get -y install default-jre
 RUN python3 --version
 
 RUN apt-get -y install git sudo
+
+RUN apt-get -y install nmap curl unicornscan nikto hping3 xprobe2 sqlmap wpscan iputils-ping
+
+RUN apt-get -y install metasploit-framework
 
 RUN useradd -ms /bin/bash jupyter
 
