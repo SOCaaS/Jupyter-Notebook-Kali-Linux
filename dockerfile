@@ -9,17 +9,17 @@ RUN tar -xvf Python-3.8.2.tgz
 
 RUN cd Python-3.8.2; ./configure --enable-shared; make ; make test; make install
 
-RUN cd /usr/local/lib/;\
-    cp libpython3.so /usr/lib64/;\
-    cp libpython3.so /usr/lib;\
-    cp libpython3.8m.so.1.0 /usr/lib64/;\
-    cp libpython3.8m.so.1.0 /usr/lib/
+# RUN cd /usr/local/lib/;\
+#     cp libpython3.so /usr/lib64/;\
+#     cp libpython3.so /usr/lib;\
+#     cp libpython3.8m.so.1.0 /usr/lib64/;\
+#     cp libpython3.8m.so.1.0 /usr/lib/
 
-RUN cd /usr/lib64;\
-    ln -s libpython3.8m.so.1.0 libpython3.8m.so
+# RUN cd /usr/lib64;\
+#     ln -s libpython3.8m.so.1.0 libpython3.8m.so
 
-RUN cd /usr/lib;\
-    ln -s libpython3.8m.so.1.0 libpython3.8m.so
+# RUN cd /usr/lib;\
+#     ln -s libpython3.8m.so.1.0 libpython3.8m.so
 
 RUN python3 -m pip --version
 
