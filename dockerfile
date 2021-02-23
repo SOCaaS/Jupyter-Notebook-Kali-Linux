@@ -21,6 +21,10 @@ RUN cd Python-3.8.2; ./configure --enable-shared; make ; make test; make install
 # RUN cd /usr/lib;\
 #     ln -s libpython3.8m.so.1.0 libpython3.8m.so
 
+RUN ls /usr/local/lib/
+
+RUN ls /usr/lib64
+
 RUN python3 -m pip --version
 
 COPY requirement.txt /requirement.txt
