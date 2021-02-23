@@ -9,6 +9,10 @@ RUN tar -xvf Python-3.8.2.tgz
 
 RUN cd Python-3.8.2; ./configure --enable-loadable-sqlite-extensions; make ; make test; make install
 
+RUN ls /usr/local/lib/
+
+RUN ls /usr/lib64
+
 RUN cd /usr/local/lib/;\
     cp libpython3.so /usr/lib64/;\
     cp libpython3.so /usr/lib;\
@@ -20,10 +24,6 @@ RUN cd /usr/lib64;\
 
 RUN cd /usr/lib;\
     ln -s libpython3.8.so.1.0 libpython3.8.so
-
-RUN ls /usr/local/lib/
-
-RUN ls /usr/lib64
 
 RUN python3 -m pip --version
 
