@@ -15,7 +15,7 @@ services:
       - type: volume
         source: jupyter_notebook
         target: /home/jupyter
-    entrypoint: ['jupyter','notebook','--no-browser',"--ip='*'","--NotebookApp.token='$JUPYTERPASSWORD'","--NotebookApp.password=$JUPYTERPASSWORD"]
+    entrypoint: ['jupyter','notebook','--no-browser',"--ip='*'","--NotebookApp.password=$JUPYTERPASSWORD"]
 networks:
   main:
     external:
