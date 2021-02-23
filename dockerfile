@@ -2,7 +2,7 @@ FROM kalilinux/kali-rolling
 
 RUN apt update
 
-RUN apt-get install -y build-essential wget curl zlib1g-dev
+RUN apt-get install -y build-essential wget curl zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev
 
 RUN wget https://www.python.org/ftp/python/3.8.2/Python-3.8.2.tgz
 RUN tar -xvf Python-3.8.2.tgz
