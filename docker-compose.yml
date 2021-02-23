@@ -15,6 +15,11 @@ services:
       - type: volume
         source: jupyter_notebook
         target: /home/jupyter
+    resources:
+      limits:
+        memory: 8g
+      reservations:
+        memory: 1g
     entrypoint: ['jupyter','notebook','--no-browser',"--ip='0.0.0.0'","--NotebookApp.password=$JUPYTERPASSWORD"]
 networks:
   main:
