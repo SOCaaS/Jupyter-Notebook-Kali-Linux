@@ -2,12 +2,12 @@ FROM kalilinux/kali-rolling
 
 RUN apt update
 
-RUN apt-get install -y build-essential wget curl zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev
+RUN apt-get install -y build-essential wget curl zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev libsqlite3-dev
 
 RUN wget https://www.python.org/ftp/python/3.8.2/Python-3.8.2.tgz
 RUN tar -xvf Python-3.8.2.tgz
 
-RUN cd Python-3.8.2; ./configure --enable-shared; make ; make test; make install
+RUN cd Python-3.8.2; ./configure --enable-loadable-sqlite-extensions; make ; make test; make install
 
 RUN cd /usr/local/lib/;\
     cp libpython3.so /usr/lib64/;\
