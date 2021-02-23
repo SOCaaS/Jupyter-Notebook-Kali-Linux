@@ -2,8 +2,6 @@ FROM kalilinux/kali-rolling
 
 RUN apt update
 
-RUN apt-get update
-
 RUN apt-get install -y build-essential openssl openssl-dev* wget curl
 
 RUN wget https://www.python.org/ftp/python/3.8.2/Python-3.8.2.tgz
@@ -19,7 +17,7 @@ RUN cd /usr/local/lib/;\
 
 RUN cd /usr/lib64;\
     ln -s libpython3.8m.so.1.0 libpython3.8m.so
-    
+
 RUN cd /usr/lib;\
     ln -s libpython3.8m.so.1.0 libpython3.8m.so
 
