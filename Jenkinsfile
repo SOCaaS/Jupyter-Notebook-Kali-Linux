@@ -20,7 +20,7 @@ pipeline {
     post {
         always {
             deleteDir() /* clean up our workspace */
-            // sh 'docker rm $(docker ps -a -q) | docker image prune -f'
+            sh 'docker rm $(docker ps -a -q) | docker image prune -f'
         }
         success {
             discordSend description: "Build Success", footer: "Jupyter Notebook Kali Linux Server", link: env.BUILD_URL, result: currentBuild.currentResult, title: JOB_NAME, webhookURL: env.SOCAAS_WEBHOOK
