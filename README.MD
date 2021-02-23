@@ -4,15 +4,22 @@ This is a unified jupyter notebook running on top of docker
 ## The purpose of this
 This is manily used for 
 
-Class :
-UOW's Big Data Mining Techniques and Implementation
+- Ethical Hacking
+- Learning Kali Linux Tools
+- Machine Learning
 
 ## Why we run docker?
 The other solution would be VM.
 A docker environment would be easier to mantain and use across system.
 
 ## Deployment Details
-Right now, this only support docker-compose & docker build only
+Right now, this only support docker-compose & docker build only.
+
+It's required to run as follow localy,
+```
+echo <Jupyter Notebook Password> | python3 -c 'from notebook.auth import passwd;print(passwd(input()))'
+```
+Enter the value to .env at $JUPYTERPASSWORD
 
 ## How to run
 Build the docker using docker-compose
