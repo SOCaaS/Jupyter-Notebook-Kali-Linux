@@ -2,15 +2,26 @@ FROM kalilinux/kali-rolling
 
 RUN apt update
 
-RUN apt -y install build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libsqlite3-dev libreadline-dev libffi-dev curl libbz2-dev
+RUN apt-get update
 
-RUN curl -O https://www.python.org/ftp/python/3.8.2/Python-3.8.2.tar.xz
+RUN apt-get install -y build-essential openssl openssl-dev* wget curl
 
-RUN tar -xf Python-3.8.2.tar.xz
+RUN wget https://www.python.org/ftp/python/3.8.2/Python-3.8.2.tgz
+RUN tar -xvf Python-3.8.2.tgz
 
-RUN cd Python-3.8.2; ./configure --enable-optimizations; make -j 4; make altinstall
+RUN cd Python-3.8.2; ./configure --enable-shared; make ; make test; make install
 
-RUN which python3
+RUN cd /usr/local/lib/;\
+    cp libpython3.so /usr/lib64/;\
+    cp libpython3.so /usr/lib;\
+    cp libpython3.8m.so.1.0 /usr/lib64/;\
+    cp libpython3.8m.so.1.0 /usr/lib/
+
+RUN cd /usr/lib64;\
+    ln -s libpython3.8m.so.1.0 libpython3.8m.so
+    
+RUN cd /usr/lib;\
+    ln -s libpython3.8m.so.1.0 libpython3.8m.so
 
 RUN python3 -m pip --version
 
