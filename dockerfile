@@ -7,7 +7,7 @@ RUN apt-get install -y build-essential wget curl zlib1g-dev libncurses5-dev libg
 RUN wget https://www.python.org/ftp/python/3.8.2/Python-3.8.2.tgz
 RUN tar -xvf Python-3.8.2.tgz
 
-RUN cd Python-3.8.2; ./configure --enable-loadable-sqlite-extensions; make ; make test; make install
+RUN cd Python-3.8.2; ./configure --enable-shared --enable-loadable-sqlite-extensions; make ; make test; make install
 
 RUN ls /usr/local/lib/
 
