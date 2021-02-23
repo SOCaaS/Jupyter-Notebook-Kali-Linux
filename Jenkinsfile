@@ -13,7 +13,7 @@ pipeline {
         stage('Build & Deploy') {
             steps {
                 echo 'Building & Deploying....'
-                sh '/usr/bin/docker-compose -p "jupyter" up -d --build'
+                sh '/usr/bin/docker-compose -p "jupyter" --compatibility up -d --build'
             }
         }
     }
