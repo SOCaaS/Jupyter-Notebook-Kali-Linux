@@ -1,0 +1,19 @@
+version: '3.9'
+services:
+  jupyter_notebook:
+    restart: always
+    image: 'jupyter-notebook:latest'
+    ports:
+     - 8080:8080
+    build:
+      context: '.'
+      dockerfile: dockerfile
+      cache_from:
+        - 'jupyter-notebook:latest'
+    volumes: 
+      - type: volume
+        source: jupyter_notebook
+        target: /home/jupyter
+    entrypoint: ['jupyter','notebook','--no-browser',"--ip='0.0.0.0'","--NotebookApp.password=$JUPYTERPASSWORD"]
+volumes:
+  jupyter_notebook:
