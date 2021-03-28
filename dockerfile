@@ -45,6 +45,8 @@ RUN apt-get -y install nmap curl unicornscan nikto hping3 xprobe2 sqlmap wpscan 
 
 RUN apt-get -y install metasploit-framework
 
+RUN apt-get -y install dnsutils
+
 RUN useradd -ms /bin/bash jupyter
 
 RUN echo "jupyter     ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
